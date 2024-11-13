@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     web.vm.hostname = "web-server"
     web.vm.network "private_network", ip: "192.168.56.5"
     web.vm.provider "virtualbox" do |vb|
-      vb.name = "WebServer"
+      vb.name = "ColMoschinWebServer1"
       vb.memory = "512"
       vb.cpus = 1
     end
@@ -89,7 +89,7 @@ EOF'
     db.vm.hostname = "db-server"
     db.vm.network "private_network", ip: "192.168.56.6"
     db.vm.provider "virtualbox" do |vb|
-      vb.name = "ColMoschinDatabaseServer"
+      vb.name = "ColMoschinDatabaseServer1"
       vb.memory = "1024"
       vb.cpus = 1
     end
