@@ -13,9 +13,9 @@ Vagrant.configure("2") do |config|
     web.vm.network "private_network", ip: "192.168.56.5"
     web.vm.provider "virtualbox" do |vb|
       vb.name = "WebServer"
-      vb.memory = "2048"
-      vb.cpus = 2
-
+      vb.memory = "512"
+      vb.cpus = 1
+    end
 
     # Provisioning for Web Server
     web.vm.provision "shell", inline: <<-SHELL
@@ -90,8 +90,9 @@ EOF'
     db.vm.network "private_network", ip: "192.168.56.6"
     db.vm.provider "virtualbox" do |vb|
       vb.name = "ColMoschinDatabaseServer"
-      vb.memory = "2048"
-      vb.cpus = 2
+      vb.memory = "1024"
+      vb.cpus = 1
+    end
 
     # Provisioning for Database Server
     db.vm.provision "shell", inline: <<-SHELL
