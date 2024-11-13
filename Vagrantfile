@@ -10,7 +10,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "web-server" do |web|
     web.vm.box = "ubuntu/bionic64" # Using Ubuntu 18.04 LTS
     web.vm.hostname = "web-server"
-    web.vm.network "private_network", ip: "192.168.56.10"
+    web.vm.network "private_network", type: "dhcp", virtualbox__intnet: "vboxnet1"
+
 
     # Provisioning for Web Server
     web.vm.provision "shell", inline: <<-SHELL
@@ -82,7 +83,7 @@ EOF'
   config.vm.define "db-server" do |db|
     db.vm.box = "ubuntu/bionic64"
     db.vm.hostname = "db-server"
-    db.vm.network "private_network", ip: "192.168.56.20"
+    db.vm.network "private_network", type: "dhcp", virtualbox__intnet: "vboxnet2"
 
     # Provisioning for Database Server
     db.vm.provision "shell", inline: <<-SHELL
